@@ -1,0 +1,2 @@
+algorithm,run,capacity_mbps,link_delay_ms,burst_duration_s,dynamic_drop,tcp_proto,tcp_goodput_mbps,udp_p50_ms,udp_p90_ms,udp_p95_ms,udp_p98_ms,udp_p99_ms,udp_p999_ms,udp_undelivered_fraction,short_completed,short_total,short_fct_p50_ms,short_fct_p95_ms,bulk_jain,queue_drops,ecn_marks,prob_drops
+burst,2,50,20,0.02,0,TcpCubic,33.1066,22.5662,28.0323,31.299,35.3778,37.9147,41.0181,0.00693431,20,20,160.638,274.662,0.996577,19,1529,19
