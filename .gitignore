@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+.venv/
+
+# C / C++ & Build Artifacts
+*.o
+*.obj
+*.dylib
+*.a
+*.out
+*.app
+build/
+cmake-cache/
+CMakeFiles/
+CMakeCache.txt
+
+# ns-3 Traces & Temp Files
+*.pcap
+*.pcapng
+*.tr
+/tmp/
+
+# OS Specific
+.DS_Store
+Thumbs.db

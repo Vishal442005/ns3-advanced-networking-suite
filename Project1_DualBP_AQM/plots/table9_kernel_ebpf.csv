@@ -1,0 +1,6 @@
+Burst Scenario,Burst Size (pkts),Total Packets,Packet Loss (%),Kernel p50 Latency (us),Kernel p95 Latency (us),eBPF Overhead (ns),Goodput (Mbps)
+Mild Burst,25,1000,0.0,70.53,171.34,404.3,4.77
+Moderate Burst,100,2500,0.0,32.1,390.44,242.1,12.09
+Heavy Microburst,250,3750,0.0,17.91,104.2,301.6,18.68
+Severe Incast,500,5000,0.0,17.64,138.27,252.6,25.62
+Extreme Storm,1000,5000,0.0,17.8,113.28,289.4,27.18

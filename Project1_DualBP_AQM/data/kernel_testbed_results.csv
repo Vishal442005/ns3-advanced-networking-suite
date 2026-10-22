@@ -1,0 +1,6 @@
+burst_scenario,burst_size,total_sent,received_count,delivery_ratio,packet_loss_pct,kernel_p50_us,kernel_p95_us,kernel_p99_us,kernel_p999_us,ebpf_hook_overhead_ns,throughput_mbps
+Mild Burst,25,1000,1000,1.0,0.0,70.53,171.34,220.55,231.39,404.3,4.77
+Moderate Burst,100,2500,2500,1.0,0.0,32.1,390.44,421.36,441.89,242.1,12.09
+Heavy Microburst,250,3750,3750,1.0,0.0,17.91,104.2,188.29,231.28,301.6,18.68
+Severe Incast,500,5000,5000,1.0,0.0,17.64,138.27,229.94,265.27,252.6,25.62
+Extreme Storm,1000,5000,5000,1.0,0.0,17.8,113.28,198.15,283.88,289.4,27.18
