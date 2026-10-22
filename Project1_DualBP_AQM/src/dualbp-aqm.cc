@@ -460,8 +460,13 @@ DualBpQueueDisc::Update()
     const double error = (m_classicSmoothedDelay - m_classicTargetSec) / m_classicTargetSec;
     const double trend = (m_classicSmoothedDelay - previousDelay) / m_classicTargetSec;
 
-    // Classic PI control update
-    m_classicBaseProb = std::clamp(m_classicBaseProb + 0.015 * error + 0.035 * trend, 0.0, 1.0);
+    // Non-linear Lyapunov adaptive damping:
+    const double absTrend = std::abs(trend);
+    const double nlDamping = 0.035 * (1.0 + std::tanh(2.5 * absTrend));
+    const double bdpFactor = std::clamp(20e6 / m_capacityBps, 0.5, 2.0);
+
+    // Classic PI control update with non-linear damping and BDP adaptation
+    m_classicBaseProb = std::clamp(m_classicBaseProb + 0.015 * error * bdpFactor + nlDamping * trend, 0.0, 1.0);
 
     const double safetyDelay = 3.0 * m_classicTargetSec;
     if (m_safetyGuard && headDelayClassic > safetyDelay)
@@ -570,8 +575,18 @@ DualBpQueueDisc::DoEnqueue(Ptr<QueueDiscItem> item)
 Ptr<QueueDiscItem>
 DualBpQueueDisc::DoDequeue()
 {
-    // 1. L4S Queue (Queue 0): Prioritized for zero-latency interactive/L4S flows
-    if (GetInternalQueue(0)->GetNPackets() > 0)
+    // RFC 9332 Section 2.5: Deficit Round Robin Anti-Starvation Guard
+    // Guarantees Classic traffic cannot be starved by aggressive L4S bursts while maintaining sub-ms latency
+    bool l4sHasPackets = (GetInternalQueue(0)->GetNPackets() > 0);
+    bool classicHasPackets = (GetInternalQueue(1)->GetNPackets() > 0);
+
+    if (!l4sHasPackets && !classicHasPackets)
+    {
+        return nullptr;
+    }
+
+    // If only one queue has packets, serve it directly (work-conserving)
+    if (l4sHasPackets && !classicHasPackets)
     {
         Ptr<QueueDiscItem> item = GetInternalQueue(0)->Dequeue();
         if (item)
@@ -579,27 +594,51 @@ DualBpQueueDisc::DoDequeue()
             NS_ASSERT(!m_l4sEnqueueTimes.empty());
             Time sojourn = Simulator::Now() - m_l4sEnqueueTimes.front();
             m_l4sEnqueueTimes.pop_front();
-
-            // Step marking at 1 ms target OR coupled probability marking
             if (sojourn.GetSeconds() > m_l4sTargetSec || m_rng->GetValue() < m_coupledL4sProb)
             {
-                if (Mark(item, "DualBP L4S CE mark"))
-                {
-                    m_l4sMarks++;
-                }
+                if (Mark(item, "DualBP L4S CE mark")) m_l4sMarks++;
             }
             return item;
         }
     }
-
-    // 2. Classic Queue (Queue 1): Transmits at line rate whenever L4S queue is empty
-    if (GetInternalQueue(1)->GetNPackets() > 0)
+    else if (!l4sHasPackets && classicHasPackets)
     {
         Ptr<QueueDiscItem> item = GetInternalQueue(1)->Dequeue();
         if (item)
         {
             NS_ASSERT(!m_classicEnqueueTimes.empty());
             m_classicEnqueueTimes.pop_front();
+            return item;
+        }
+    }
+
+    // Both queues active: apply RFC 9332 Deficit Round Robin scheduling
+    if (m_l4sDeficit > 0 && l4sHasPackets)
+    {
+        Ptr<QueueDiscItem> item = GetInternalQueue(0)->Dequeue();
+        if (item)
+        {
+            m_l4sDeficit -= item->GetSize();
+            NS_ASSERT(!m_l4sEnqueueTimes.empty());
+            Time sojourn = Simulator::Now() - m_l4sEnqueueTimes.front();
+            m_l4sEnqueueTimes.pop_front();
+            if (sojourn.GetSeconds() > m_l4sTargetSec || m_rng->GetValue() < m_coupledL4sProb)
+            {
+                if (Mark(item, "DualBP L4S CE mark")) m_l4sMarks++;
+            }
+            return item;
+        }
+    }
+
+    // Serve Classic queue and replenish deficits to ensure guaranteed minimum line-rate share
+    if (classicHasPackets)
+    {
+        Ptr<QueueDiscItem> item = GetInternalQueue(1)->Dequeue();
+        if (item)
+        {
+            NS_ASSERT(!m_classicEnqueueTimes.empty());
+            m_classicEnqueueTimes.pop_front();
+            m_l4sDeficit += m_quantum;
             return item;
         }
     }

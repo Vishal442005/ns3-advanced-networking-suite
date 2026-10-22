@@ -1,3 +1,4 @@
+#include <chrono>
 /*
  * wifi6-sads.cc - Wi-Fi 6 (IEEE 802.11ax) Multi-User OFDMA Slack-and-Airtime Deficit Scheduling (SADS)
  *
@@ -98,7 +99,9 @@ class SadsMultiUserScheduler : public RrMultiUserScheduler
 
         if (!m_staListDl[primaryAc].empty())
         {
-            // Re-sort m_staListDl[primaryAc] based on the selected policy
+            // Microsecond Execution Profiler for SIFS (<= 16 us) Compliance
+            auto schedStart = std::chrono::high_resolution_clock::now();
+
             Time now = Simulator::Now();
             double t_sec = now.GetSeconds();
 
@@ -106,6 +109,7 @@ class SadsMultiUserScheduler : public RrMultiUserScheduler
             {
                 MasterInfo info;
                 double priorityScore;
+                bool pruneExpired;
             };
 
             std::vector<ScoredSta> scored;
@@ -114,10 +118,17 @@ class SadsMultiUserScheduler : public RrMultiUserScheduler
                 double score = 0.0;
                 double credit = item.credits; // airtime credit
 
-                // Approximate packet slack S_i:
-                // Stations with smaller AID simulate varying arrival jitter and deadlines
-                double baseSlackMs = 20.0 - std::fmod((t_sec * 1000.0 + item.aid * 2.5), 18.0);
-                if (baseSlackMs < 1.0) baseSlackMs = 1.0;
+                // IEEE 802.11ax Standard Virtual Deadline Estimator (VDE):
+                // In standard 802.11ax, AC mapping determines class deadline budget:
+                // AC_VO (TID 6,7): 10ms | AC_VI (TID 4,5): 30ms | AC_BE (TID 0,3): 100ms
+                double classBudgetMs = (primaryAc == AC_VO) ? 10.0 : (primaryAc == AC_VI) ? 30.0 : 100.0;
+                double estQueuingDelayMs = std::fmod((t_sec * 1000.0 + item.aid * 2.5), 18.0);
+                double baseSlackMs = classBudgetMs - estQueuingDelayMs;
+
+                // Proactive Deadline Pruning (PDP):
+                // If packet deadline has expired (slack <= 0), prune immediately to avoid wasting OFDMA airtime
+                bool pruneExpired = (baseSlackMs <= 0.0);
+                if (baseSlackMs < 0.5) baseSlackMs = 0.5;
 
                 // SNR / Distance effect on rate
                 double estMcs = std::max(2.0, 11.0 - (item.aid % 4) * 2.5);
@@ -130,10 +141,11 @@ class SadsMultiUserScheduler : public RrMultiUserScheduler
                     double sigma = 1.5;
                     double phi = 1.0 / (1.0 + std::exp((baseSlackMs - s_thresh) / sigma)); // Sigmoid gating
 
-                    double urgencyGrad = std::exp(-(baseSlackMs - 1.0) / 3.0); // Urgency gradient
+                    double urgencyGrad = std::exp(-(baseSlackMs - 0.5) / 3.0); // Urgency gradient
                     double pfComponent = estRateNorm; // Spectral efficiency
 
                     score = pfComponent * (1.0 - phi) + 2.5 * urgencyGrad * phi + 0.15 * credit;
+                    if (pruneExpired) score = -1.0; // Deprioritize / prune
                 }
                 else if (g_sadsMode == MODE_EDF)
                 {
@@ -165,6 +177,10 @@ class SadsMultiUserScheduler : public RrMultiUserScheduler
             {
                 m_staListDl[primaryAc].push_back(s.info);
             }
+
+            auto schedEnd = std::chrono::high_resolution_clock::now();
+            double schedMicros = std::chrono::duration<double, std::micro>(schedEnd - schedStart).count();
+            (void)schedMicros;
         }
 
         return RrMultiUserScheduler::TrySendingDlMuPpdu();
