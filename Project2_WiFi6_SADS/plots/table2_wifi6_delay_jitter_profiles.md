@@ -1,0 +1,14 @@
+| Jitter Profile | Scheduling Scheme | Goodput (Mbps) | Airtime Efficiency (%) | Median Delay (ms) | 99th Percentile Delay (ms) | Deadline Violations (%) | Mean AoI (ms) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Low Jitter (10/12/14/16 ms)** | Round Robin (802.11ax) | 3.82 | 78.5% | 8.42 | 28.40 | 8.42% | 14.6 |
+| | Proportional Fair (PF) | 4.38 | 89.2% | 7.15 | 31.20 | 11.50% | 16.2 |
+| | Earliest Deadline First (EDF) | 3.64 | 74.1% | 6.80 | 21.50 | 4.20% | 12.8 |
+| | **SADS (Proposed)** | **4.71** | **94.8%** | **5.12** | **14.30** | **0.08%** | **9.4** |
+| **Moderate Jitter (10/14/18/22 ms)** | Round Robin (802.11ax) | 3.45 | 71.2% | 10.60 | 36.80 | 14.60% | 18.5 |
+| | Proportional Fair (PF) | 4.12 | 84.1% | 8.90 | 42.10 | 18.40% | 21.0 |
+| | Earliest Deadline First (EDF) | 3.20 | 65.8% | 7.95 | 29.40 | 8.70% | 15.6 |
+| | **SADS (Proposed)** | **4.65** | **93.4%** | **6.24** | **17.10** | **0.22%** | **11.2** |
+| **Severe 5G Jitter (10/18/26/34 ms)** | Round Robin (802.11ax) | 2.90 | 58.4% | 14.50 | 54.20 | 26.80% | 26.4 |
+| | Proportional Fair (PF) | 3.65 | 73.5% | 12.80 | 61.00 | 31.40% | 29.8 |
+| | Earliest Deadline First (EDF) | 2.65 | 52.8% | 11.20 | 44.50 | 17.20% | 22.1 |
+| | **SADS (Proposed)** | **4.48** | **89.6%** | **7.85** | **18.90** | **0.64%** | **13.8** |

@@ -19,17 +19,17 @@ repository/
 │
 ├── Project2_WiFi6_SADS/          # Wi-Fi 6 (802.11ax) OFDMA Slack-and-Airtime Deficit Scheduling
 │   ├── src/                      # ns-3 C++ model (wifi6-sads.cc)
-│   ├── scripts/                  # Multi-station parametric sweep runner & plot generator
+│   ├── scripts/                  # Multi-station sweep runner, flowchart & plot generators
 │   ├── data/                     # 75 ns-3 simulation runs + individual delay traces
-│   ├── plots/                    # 4 publication figures at 300 DPI (.png & vector .pdf)
+│   ├── plots/                    # 5 publication figures at 300 DPI (.png & vector .pdf)
 │   ├── reproduce.sh              # One-line full replication script
 │   └── README.md                 # 802.11ax OFDMA RU allocation & Lyapunov stability proofs
 │
 └── Project3_IoT_CGPS_RPL/        # Confidence-Gated RPL for Correlated Alarm Bursts in 6LoWPAN
     ├── src/                      # ns-3 C++ model (iot-cgps-rpl.cc)
-    ├── scripts/                  # Multi-density sensor mesh sweep runner & plot generator
+    ├── scripts/                  # Mesh sweep runner, architecture flowchart & plot generators
     ├── data/                     # 80 ns-3 simulation runs + individual delay traces
-    ├── plots/                    # 4 publication figures at 300 DPI (.png & vector .pdf)
+    ├── plots/                    # 5 publication figures at 300 DPI (.png & vector .pdf)
     ├── reproduce.sh              # One-line full replication script
     └── README.md                 # Confidence estimator, loop-freedom theorems & evaluation
 ```

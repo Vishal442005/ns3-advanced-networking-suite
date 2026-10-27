@@ -20,6 +20,7 @@ DualBP and BP-AQM provide an active queue management framework that reconciles t
   - `generate_top_tier_plots.py`: Generates 300 DPI publication plots (Figures 1 to 8).
   - `generate_dualbp_figures.py`: Generates 300 DPI DualBP and Linux kernel telemetry figures (Figures 9 and 10).
   - `generate_arch_diagram.py`: Generates high-res architectural pipeline diagram (Figure 0).
+  - `generate_phase_space_plot.py`: Generates 300 DPI Phase-Space State Evolution Trajectories (Figure 11) demonstrating Lyapunov asymptotic stability.
 - `data/`:
   - `simulation_results.csv`: 560 experimental ns-3 runs across 8 algorithms.
   - `dualbp_results.csv`: 24 runs across burst multipliers ($1\times \to 10\times$).
@@ -27,7 +28,8 @@ DualBP and BP-AQM provide an active queue management framework that reconciles t
   - `kernel_testbed_results.csv`: Telemetry across 17,250 genuine packets in physical Linux kernel network namespaces.
   - `empirical_traffic_trace.csv`: Real-world Wireshark HTTP/2 and HTTP/3 packet trace characterization.
 - `plots/`:
-  - Figures 0 through 10 in both 300 DPI raster (`.png`) and vector (`.pdf`) formats.
+  - Figures 0 through 11 in both 300 DPI raster (`.png`) and vector (`.pdf`) formats (including Figure 11: `fig11_phase_space_trajectories.png` / `.pdf`).
+  - `table10_aqm_taxonomy_comparison.csv` / `.md`: Comprehensive AQM architectural taxonomy comparison against RFC standards and SOTA algorithms.
   - Markdown summary tables.
 
 ## Quick Reproduction
