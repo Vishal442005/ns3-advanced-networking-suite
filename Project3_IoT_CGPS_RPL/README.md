@@ -25,14 +25,17 @@ CGPS-RPL provides a resilient routing framework for multi-hop 6LoWPAN / IEEE 802
 - `data/`:
   - `iot_cgps_rpl_results.csv`: 80 simulation runs summary matrix.
   - `iot_cgps_rpl_delays.csv`: Individual packet delay traces.
+  - `iot_fit_iotlab_topology.csv`: Physical 50-node FIT IoT-LAB Grenoble testbed deployment coordinates and tier hierarchy.
 - `plots/`:
   - `fig1_iot_delay_ecdf.png` / `.pdf`: Alarm packet latency ECDF under burst incast.
   - `fig2_iot_pdr_scaling.png` / `.pdf`: Alarm PDR and overall PDR vs node density.
   - `fig3_iot_drops_and_stability.png` / `.pdf`: Bottleneck buffer drops & parent switch route flaps.
   - `fig4_iot_energy_pareto.png` / `.pdf`: Energy consumption vs delivery reliability Pareto frontier.
   - `fig5_iot_cgps_rpl_flowchart.png` / `.pdf`: In-band piggybacked telemetry & acyclic parent deflection state machine flowchart.
+  - `fig6_iot_empirical_iotlab_trace.png` / `.pdf`: Physical FIT IoT-LAB 50-node deployment and bottleneck queue deflection timeline under IEC 61850 substation alarm incast.
   - `table1_iot_performance.csv`: Summary performance matrix across all 4 routing schemes.
   - `table2_iot_network_lifetime_energy.csv` / `.md`: Network lifetime projection, per-node radio duty cycle, and Joule/packet energy efficiency matrix.
+  - `table3_iot_fit_iotlab_benchmark.csv` / `.md`: Empirical testbed benchmark under IEC 61850 alarm storm.
 
 ## Quick Reproduction
 

@@ -25,14 +25,17 @@ SADS provides a Downlink Multi-User OFDMA scheduler for IEEE 802.11ax (Wi-Fi 6) 
 - `data/`:
   - `wifi6_sads_results.csv`: 75 simulation runs summary matrix.
   - `wifi6_sads_delays.csv`: Individual packet delay traces.
+  - `wifi6_xr_gaming_trace.csv`: Standardized 3GPP TR 38.838 / IEEE 802.11be Extended Reality (XR) video & 1 kHz IMU telemetry trace.
 - `plots/`:
   - `fig1_wifi6_delay_ecdf.png` / `.pdf`: Delay-critical packet latency ECDF.
   - `fig2_wifi6_throughput_scaling.png` / `.pdf`: BSS goodput & spectral efficiency vs station density.
   - `fig3_wifi6_deadline_violations.png` / `.pdf`: Deadline violation containment vs station density.
   - `fig4_wifi6_fairness_tradeoff.png` / `.pdf`: Airtime fairness & delay-throughput Pareto frontier.
   - `fig5_wifi6_sads_state_machine_flowchart.png` / `.pdf`: SADS dual-state coordination and sub-SIFS multi-user OFDMA scheduling architecture flowchart.
+  - `fig6_wifi6_empirical_xr_trace.png` / `.pdf`: Standardized 3GPP XR tail latency containment and Peak AoI under dense station contention.
   - `table1_wifi6_performance.csv`: Summary performance matrix across all 5 schedulers.
   - `table2_wifi6_delay_jitter_profiles.csv` / `.md`: Detailed per-TID delay, 99th-percentile jitter, and airtime deficit profiles.
+  - `table3_wifi6_empirical_xr_benchmark.csv` / `.md`: Empirical XR video & 1 kHz IMU benchmark matrix.
 
 ## Quick Reproduction
 
