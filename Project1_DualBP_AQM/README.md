@@ -31,6 +31,7 @@ DualBP and BP-AQM provide an active queue management framework that reconciles t
   - Figures 0 through 12 in both 300 DPI raster (`.png`) and vector (`.pdf`) formats (including Figure 11 Phase-Space Trajectories and Figure 12 Empirical Trace Replay).
   - `table10_aqm_taxonomy_comparison.csv` / `.md`: Comprehensive AQM architectural taxonomy comparison against RFC standards and SOTA algorithms.
   - `table11_empirical_trace_validation.csv` / `.md`: Empirical validation under MAWI backbone & multi-stream HTTP/3 traces.
+  - `table12_statistical_sota_tnsm.csv` / `.md`: Formal statistical hypothesis testing (Welch's t, Mann-Whitney U, Cohen's d) against SOTA AQMs (PAQMAN 2024, ML-AQM 2024, DualPI2, CoDel).
   - Markdown summary tables.
 
 ## Quick Reproduction

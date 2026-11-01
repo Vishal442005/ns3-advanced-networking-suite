@@ -36,6 +36,7 @@ CGPS-RPL provides a resilient routing framework for multi-hop 6LoWPAN / IEEE 802
   - `table1_iot_performance.csv`: Summary performance matrix across all 4 routing schemes.
   - `table2_iot_network_lifetime_energy.csv` / `.md`: Network lifetime projection, per-node radio duty cycle, and Joule/packet energy efficiency matrix.
   - `table3_iot_fit_iotlab_benchmark.csv` / `.md`: Empirical testbed benchmark under IEC 61850 alarm storm.
+  - `table4_iot_statistical_sota_iotj.csv` / `.md`: Formal statistical hypothesis testing (Welch's t, Mann-Whitney U, Cohen's d) against SOTA RPL protocols (LALA-RPL 2024, CoCoA+ 2023, RPL-MRHOF).
 
 ## Quick Reproduction
 

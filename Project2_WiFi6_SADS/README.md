@@ -36,6 +36,7 @@ SADS provides a Downlink Multi-User OFDMA scheduler for IEEE 802.11ax (Wi-Fi 6) 
   - `table1_wifi6_performance.csv`: Summary performance matrix across all 5 schedulers.
   - `table2_wifi6_delay_jitter_profiles.csv` / `.md`: Detailed per-TID delay, 99th-percentile jitter, and airtime deficit profiles.
   - `table3_wifi6_empirical_xr_benchmark.csv` / `.md`: Empirical XR video & 1 kHz IMU benchmark matrix.
+  - `table4_wifi6_statistical_sota_tmc.csv` / `.md`: Statistical significance testing (Welch's t, Mann-Whitney U, Cohen's d) against SOTA Wi-Fi 6 schedulers (Liu 2023, Smith 2025, EDF).
 
 ## Quick Reproduction
 
