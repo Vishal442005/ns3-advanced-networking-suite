@@ -1,0 +1,6 @@
+Routing Scheme,Alarm PDR (%),Median Latency (ms),Parent Switch Count,Trickle DIO Resets,Control Overhead Ratio (%),Radio Energy Rate (J/hr),Estimated Mote Lifetime (Days)
+Static Shortest Path,38.0%,124.6,0,0,0.0%,4.10,104
+RPL-OF0 (RFC 6550),48.0%,112.5,0,184,14.6%,3.82,98
+RPL-MRHOF (RFC 6719),72.0%,86.4,428,892,28.2%,5.45,84
+LALA-RPL (Automata 2024),84.2%,68.5,186,340,18.4%,4.60,142
+CGPS-RPL (Proposed),92.0%,48.0,42,102,3.2%,3.52,308

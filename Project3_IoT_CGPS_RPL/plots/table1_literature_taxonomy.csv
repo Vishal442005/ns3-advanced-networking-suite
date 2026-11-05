@@ -1,0 +1,13 @@
+Protocol,Year,Objective Function Metric,Congestion Detection,Signaling Plane,Loop Freedom,Trickle Decoupled?,Complexity
+RPL-MRHOF [2],2012,Link ETX,Reactive (MAC drop),Out-of-band (DIO),Strict Rank Order,No (Reset to I_min),O(1)
+QU-RPL [7],2017,ETX + Queue Factor,Threshold Queue,Periodic DIO Tag,Rank Monotonicity,No,O(1)
+LB-RPL [8],2013,ETX + Sibling Load,Gradient Descent,In-band Beacon,Heuristic Sibling,No,O(N)
+Co-RPL [12],2023,Link RSSI + Buffer,Neighbor Probe,Out-of-band Probes,Rank Monotonicity,Partial,O(k)
+FL-RPL [13],2023,"Fuzzy (ETX, Energy, Q)",Fuzzy Rule Matrix,Out-of-band DIO,Fuzzy Rank Order,No,O(R*M)
+RL-RPL [14],2023,Q-Learning Reward,Loss Penalty Reward,End-to-end Feedback,Epsilon-Greedy,No,O(|S|*|A|)
+AMRPL [15],2023,Articulation Relay,Partition Boundary,Mobile Beacons,Tree Boundary,No,O(V+E)
+LALA-RPL [11],2024,Automata Probability,ACK Reception Lag,End-to-end ACK,Probability Vector,No,O(k)
+GTMP-RPL [16],2024,Game Nash Equilibrium,Queue Bottleneck,Multi-path Negotiation,Tree Hierarchy,Partial,O(N^2)
+ECR-RPL [17],2024,Energy + Filtered Queue,Moving-Average Queue,Out-of-band DIO,Hysteresis Rank,No,O(1)
+6TiSCH-TSCH [18],2024,Channel Hopping Slots,Slotframe Capacity,6P Negotiation,Standard RPL DAG,No,O(S)
+CGPS-RPL (Proposed),2026,Queue Gradient dQ/dt,Dual-Gate Predictive,In-Band Piggyback,Formal Induction,Yes (Reset Gating),O(1)
