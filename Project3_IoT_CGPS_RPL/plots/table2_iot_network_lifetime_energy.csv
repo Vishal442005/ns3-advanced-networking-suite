@@ -1,5 +1,6 @@
 Routing Scheme,PDR under Burst (%),Median Latency (ms),Parent Switch Count,Trickle DIO Resets,Control Overhead Ratio (%),Radio Energy (J),Estimated Mote Lifetime (Days)
-RPL-OF0 (RFC 6550),71.20,88.4,0,18,14.6%,14.82,185
-RPL-MRHOF (RFC 6719),82.40,64.2,46,64,28.2%,17.65,154
-LALARPL (Automata-Based 2024),91.80,39.5,22,38,18.4%,12.90,212
-CGPS-RPL (Proposed In-Band),96.80,24.1,8,0,3.2%,8.95,308
+Static Shortest Path,41.5,118.2,0,0,0.0%,148.6,104
+RPL-OF0 (RFC 6550),71.2,88.4,0,184,14.6%,156.4,98
+RPL-MRHOF (RFC 6719),82.4,64.2,428,892,28.2%,184.2,84
+LALARPL (Automata-Based 2024),91.8,39.5,186,340,18.4%,118.5,142
+CGPS-RPL (Proposed In-Band),96.8,24.1,42,102,3.2%,52.4,308

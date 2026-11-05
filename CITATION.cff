@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, simulation models, or benchmark datasets in your research, please cite it as below."
+authors:
+  - family-names: "Chandel"
+    given-names: "Vishal"
+    orcid: "https://orcid.org/0009-0006-0552-8551"
+    affiliation: "Department of Electronics and Communication Engineering, Jawaharlal Nehru Government Engineering College (JNGEC), Sundernagar, HP, India"
+title: "ns3-advanced-networking-suite: Experimental Artifacts and Trace-Driven Simulation Models for Ultra-Reliable Low-Latency Networking"
+version: 2.0.0
+date-released: 2026-11-05
+doi: 10.5281/zenodo.14022831
+url: "https://github.com/Vishal442005/ns3-advanced-networking-suite"
+repository-code: "https://github.com/Vishal442005/ns3-advanced-networking-suite"
+license: GPL-2.0-only
+keywords:
+  - ns-3
+  - active queue management
+  - bufferbloat
+  - L4S
+  - WiFi 6
+  - OFDMA scheduling
+  - 6LoWPAN
+  - RPL routing
+  - industrial IoT
+  - reproducible research

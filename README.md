@@ -1,5 +1,14 @@
 # Advanced Computer Networking Research Artifacts Repository
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14022831.svg)](https://doi.org/10.5281/zenodo.14022831)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[![Release](https://img.shields.io/badge/release-v2.0.0-green.svg)](https://github.com/Vishal442005/ns3-advanced-networking-suite/releases/tag/v2.0.0)
+
+**Author:** Vishal Chandel  
+**ORCID:** [0009-0006-0552-8551](https://orcid.org/0009-0006-0552-8551)  
+**Affiliation:** Department of Electronics and Communication Engineering, Jawaharlal Nehru Government Engineering College (JNGEC), Sundernagar, HP, India  
+**Persistent DOI:** [10.5281/zenodo.14022831](https://doi.org/10.5281/zenodo.14022831)
+
 This repository contains the complete simulation models, programmable hardware data-plane implementations (eBPF & P4_16), experimental orchestrators, empirical datasets, and publication-grade figure suites for three cutting-edge networking research projects.
 
 ---

@@ -1,7 +1,7 @@
-| RTT (ms) | Crossover Freq (rad/s) | Phase Margin (deg) | Gain Margin (dB) | Delay Margin (ms) | Stability Status |
-| --- | --- | --- | --- | --- | --- |
-| 10 ms | 0.10 | 18.3° | 115.0 dB | 3197.5 ms | Conditionally Stable |
-| 20 ms | 0.10 | 18.2° | 103.0 dB | 3177.5 ms | Conditionally Stable |
-| 50 ms | 0.10 | 17.9° | 87.0 dB | 3117.5 ms | Conditionally Stable |
-| 100 ms | 0.10 | 17.3° | 74.7 dB | 3017.5 ms | Conditionally Stable |
-| 200 ms | 0.10 | 16.1° | 62.3 dB | 2817.5 ms | Conditionally Stable |
+| RTT (ms)   |   Crossover Freq (rad/s) | Phase Margin (deg)   | Gain Margin (dB)   | Delay Margin (ms)   | Stability Status   |
+|:-----------|-------------------------:|:---------------------|:-------------------|:--------------------|:-------------------|
+| 10 ms      |                     0.22 | 90.6°                | 43.4 dB            | 7065.0 ms           | Stable             |
+| 20 ms      |                     1.8  | 89.6°                | 27.0 dB            | 867.7 ms            | Stable             |
+| 40 ms      |                     9.08 | 27.9°                | 8.1 dB             | 53.6 ms             | Stable             |
+| 60 ms      |                    11.8  | -20.6°               | -7.2 dB            | -30.5 ms            | Marginally Stable  |
+| 80 ms      |                    12.97 | -53.7°               | -19.3 dB           | -72.2 ms            | Marginally Stable  |
