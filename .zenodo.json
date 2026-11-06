@@ -10,7 +10,7 @@
   "description": "Comprehensive simulation models, hardware data planes (Linux eBPF & Intel Tofino P4_16), industrial trace replays, and reproducibility suites across three advanced networking research projects:\n1. DualBP-AQM: Burst-Aware Coupled Active Queue Management for L4S (RFC 9332).\n2. SADS-MAC: Wi-Fi 6 (IEEE 802.11ax) Multi-User OFDMA Deadline & Airtime Deficit Scheduling.\n3. CGPS-RPL: Congestion-Gradient Predictive Steering for Ultra-Reliable Bursty Industrial 6LoWPAN Networks.",
   "access_right": "open",
   "license": "GPL-2.0-only",
-  "version": "v2.0.0",
+  "version": "v2.1.0",
   "doi": "10.5281/zenodo.14022831",
   "keywords": [
     "ns-3",

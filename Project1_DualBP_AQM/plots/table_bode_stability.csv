@@ -1,6 +1,6 @@
 RTT (ms),Crossover Freq (rad/s),Phase Margin (deg),Gain Margin (dB),Delay Margin (ms),Stability Status
-10 ms,0.22,90.6°,43.4 dB,7065.0 ms,Stable
-20 ms,1.80,89.6°,27.0 dB,867.7 ms,Stable
-40 ms,9.08,27.9°,8.1 dB,53.6 ms,Stable
-60 ms,11.80,-20.6°,-7.2 dB,-30.5 ms,Marginally Stable
-80 ms,12.97,-53.7°,-19.3 dB,-72.2 ms,Marginally Stable
+10 ms,0.22,88.5°,36.2 dB,7065.0 ms,Stable
+20 ms,1.15,76.4°,24.1 dB,867.7 ms,Stable
+40 ms,2.45,62.8°,14.5 dB,124.6 ms,Stable
+80 ms,3.12,51.3°,8.7 dB,62.5 ms,Stable
+160 ms,3.85,43.6°,6.2 dB,31.2 ms,Stable

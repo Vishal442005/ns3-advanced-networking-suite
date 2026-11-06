@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14022831.svg)](https://doi.org/10.5281/zenodo.14022831)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
-[![Release](https://img.shields.io/badge/release-v2.0.0-green.svg)](https://github.com/Vishal442005/ns3-advanced-networking-suite/releases/tag/v2.0.0)
+[![Release](https://img.shields.io/badge/release-v2.1.0-green.svg)](https://github.com/Vishal442005/ns3-advanced-networking-suite/releases/tag/v2.1.0)
 
 **Author:** Vishal Chandel  
 **ORCID:** [0009-0006-0552-8551](https://orcid.org/0009-0006-0552-8551)  

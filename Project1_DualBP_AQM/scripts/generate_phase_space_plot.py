@@ -49,7 +49,7 @@ def load_trace(algo_name):
     else:
         t = df.iloc[:, 0].values.astype(float)
         q = df.iloc[:, 1].values.astype(float)
-    mask = (t >= 0.8) & (t <= 3.5)
+    mask = (t >= 11.2) & (t <= 14.5)
     t = t[mask]
     q = q[mask]
     dt = np.diff(t)
